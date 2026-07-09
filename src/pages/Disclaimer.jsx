@@ -1,0 +1,43 @@
+import LegacyContentPage from "../components/LegacyContentPage";
+
+const html = `<!--include  header file -->
+  <section class="disclaimer-section" style="padding: 2rem; max-width: 900px; margin: auto; font-family: Arial, sans-serif; line-height: 1.6;">
+    <h1>Disclaimer</h1>
+
+    <!-- <p><strong>Say Goodbye to JAMB, Enter 200-Level Directly!</strong> Gain university admission via <strong>JUPEB/IJMB</strong>. Enjoy low fees and a smoother admission process. Call <strong>08033006849</strong> now to get started!</p> -->
+
+    <hr />
+
+    <p><strong>mySearch-query.onrender Platform </strong> provides news and updates for your convenience and ease of access, based on publicly available information. While we strive to ensure the accuracy and reliability of our content, we do not take responsibility for any unintended errors, outdated details, or misinterpretations.</p>
+
+    <p>Please note: <strong>This website is not the official page</strong> of any educational institution or organization. We strongly encourage all users to confirm information by visiting the official websites of the respective institutions or authorities for the most accurate and up-to-date details.</p>
+
+    <p>For organizations and institutions featured here, our intent is purely to promote <strong>“Access to Information”</strong> for the benefit of students and the general public. The information shared should not be misinterpreted as an endorsement or official partnership.</p>
+
+    <p><em>All names, acronyms, logos, and trademarks displayed on this website belong to their respective owners.</em></p>
+
+    <hr />
+
+    <h2>Contact Us</h2>
+    <p>Have a question, concern, or correction? Feel free to reach out or follow us for real-time updates:</p>
+    <ul>
+      <li>📞 Call: <a href="tel:08033006849">08103484528</a></li>
+      <li>🐦 Twitter: <a href="https://x.com/UcheUc189405" target="_blank">@MySearch-query.onrender</a></li>
+      <li>📘 Facebook: <a href="https://web.facebook.com/?_rdc=1&_rdr#" target="_blank">Like our Page</a></li>
+    </ul>
+  </section>
+  <!-- foooter ......................................... -->
+  
+  <script src="js/index.js"></script>`;
+
+export default function Disclaimer() {
+  return (
+    <LegacyContentPage
+      title="Disclaimer |mySearch-query.onrender | MySearch Query"
+      description="Read the official disclaimer for mySearch-query.onrender. Learn about our information sharing practices and the importance of verifying official updates from appropriate authorities."
+      html={html}
+    >
+      
+    </LegacyContentPage>
+  );
+}

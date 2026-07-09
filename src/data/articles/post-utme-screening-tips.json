@@ -1,0 +1,36 @@
+{
+  "slug": "post-utme-screening-tips",
+  "title": "How to Prepare for Post-UTME Screening: A Practical Guide",
+  "description": "Practical, step-by-step guidance on preparing for Post-UTME screening — from document checks to what actually gets tested.",
+  "category": "JAMB Guides",
+  "sections": [
+    {
+      "heading": "Know What Format Your School Uses",
+      "body": "Post-UTME screening isn't standardized across every Nigerian university. Some conduct a computer-based test similar in structure to the UTME itself, others rely primarily on document/credential screening, and some combine both with an interview. Before you prepare, confirm which format your specific school and department use — this is published on the school's own admission portal, not by JAMB."
+    },
+    {
+      "heading": "If Your School Runs a CBT-Style Test",
+      "body": "Study is generally focused on your four UTME subjects, at a similar difficulty level to the UTME rather than a separate syllabus. Past questions from the specific school (where available) are useful for getting used to their interface and question style, but the underlying subject knowledge you built for UTME still applies directly."
+    },
+    {
+      "heading": "If Your School Screens Documents Only",
+      "body": "Preparation shifts from studying to organization: have your O'Level result(s), UTME result slip, birth certificate or age declaration, and passport photographs ready and correctly matched to each other (same name spelling, consistent date of birth) before the screening date. A document mismatch discovered at screening — not a knowledge gap — is the most common reason candidates get flagged for further review at this stage."
+    },
+    {
+      "heading": "Common Reasons Candidates Get Delayed at Screening",
+      "body": "Name or date-of-birth mismatches between JAMB, WAEC/NECO, and NIN records are the single most frequent hold-up. A subject combination that doesn't match your intended course is the second most common. Resolving either of these through JAMB's correction process before your screening date — rather than discovering them at the venue — avoids losing your slot in that admission cycle."
+    },
+    {
+      "heading": "On the Day",
+      "body": "Arrive with your JAMB registration slip, an original and photocopy of every required document, and enough time to account for accreditation queues, which can be long at high-demand schools. If your screening is CBT-based, familiarize yourself with your specific test center's rules in advance (permitted items, reporting time) since these can differ from your original UTME center."
+    }
+  ],
+  "faqs": [
+    { "q": "Do I need to buy a separate Post-UTME past questions book?", "a": "It can help if your school runs a CBT-style test similar to UTME, but it isn't essential — your existing UTME subject preparation is the actual foundation being tested, and school-specific past questions mainly help with format familiarity rather than new content." },
+    { "q": "What if I can't attend my Post-UTME screening date?", "a": "Contact the school's admissions office as early as possible — policies on rescheduling vary by institution, and some do not offer a second date, so missing it can mean losing that admission cycle's consideration at that school entirely." },
+    { "q": "Is Post-UTME the same as an entrance exam?", "a": "Not exactly — it's a school-specific screening layered on top of your national UTME result, not a fully separate entrance exam with its own independent syllabus (in most cases)." },
+    { "q": "Can I be screened for more than one school?", "a": "Only if you've changed your institution choice on JAMB or are applying through a route (like Direct Entry) that allows it — ordinarily your UTME choice locks you to one school's Post-UTME process per cycle." }
+  ],
+  "sourceUrls": [],
+  "generatedAt": "2026-07-08T00:00:00.000Z"
+}

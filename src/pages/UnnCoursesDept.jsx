@@ -1,0 +1,94 @@
+import LegacyContentPage from "../components/LegacyContentPage";
+import HotLinks from "../components/HotLinks";
+import { jambHotLink6 } from "../data/hotLinksData";
+
+const html = `<!--include  header file -->
+    <div class="image">   </div>
+    <div class="heading-top">
+
+    <nav class="navigation">
+        <a href="#">Admissions</a>
+        <div class="dropdown">
+            <a href="#">Courses & Programs ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Cut-off Marks</a>
+                <a href="#">Required Courses</a>
+                <a href="../cgpaCalc.html">GPA & CGPA Calculation</a>
+                <a href="#">Download Past Questions</a>
+            </div>
+        </div>
+        <a href="../cgpaCalc.html">Calculate CGPA & GPA</a>
+    </nav>
+    </div>
+    <div class=" container section-txt">
+    <ul class="child-ul">
+    <li class="list-group-item"><a href="/funai-accomodation-guide" class="text-decoration-none">When is the deadline for FUNAI admission?</a></li>
+    <li class="list-group-item"><a href="/funai-post-gradute-guide-procedures/guide" class="text-decoration-none">How to apply for postgraduate programs at FUNAI?</a></li>
+    <li class="list-group-item"><a href="/funai-admissionprocedures" class="text-decoration-none">FUNAI undergraduate programs and courses offered</a></li>
+    <li class="list-group-item"><a href="/funai-admission-portal" class="text-decoration-none">FUNAI admission portal login</a></li>
+    <li class="list-group-item"><a href="/funai-acceptance/fee/page" class="text-decoration-none">How much is FUNAI acceptance fee?</a></li>
+    <li class="list-group-item"><a href="/funai-aids/scholarship/page" class="text-decoration-none">FUNAI scholarship opportunities for new students</a></li>
+    <li class="list-group-item"><a href="/funai-homePage/admission" class="text-decoration-none">What is the admission process at FUNAI?</a></li>
+    <li class="list-group-item"><a href="https://admission.funai.edu.ng/admission_status.php" class="text-decoration-none">FUNAI admission status check</a></li>
+    <li class="list-group-item"><a href="/unn-jamb/courses/programs" class="text-decoration-none">UNN jamb subjects combinations for different courses</a></li>
+</ul>
+</div>
+<div class="container">
+    <p>Lists facaulties/Departments  in A-E Funai <a href="/funai-faculties-dept">Click To View</a></p>
+</div>
+    <div class="container ">
+        <div class="section-txt">
+        <h1>How to Change Your Course/Department</h1>
+        <h2> Requirements for Changing Course</h2>
+        <ul class="child-ul">
+            <li> You must have a good academic record (minimum CGPA of 3.0 or higher).</li>
+            <li> Your O'level and UTME subject combination must match the new course.</li>
+            <li> There must be available space in the new department.</li>
+            <li> Some universities allow course changes only after the first year.</li>
+        </ul>
+    </div>
+    <div class="section-txt">
+        <h2>Steps to Change Course/Department</h2>
+        <ol class="child-ul">
+            <li><strong>Step 1:</strong> Visit the admissions or faculty office for inquiries.</li>
+            <li><strong>Step 2:</strong> Check if you meet the eligibility requirements.</li>
+            <li><strong>Step 3:</strong> Obtain and fill the change of course form.</li>
+            <li><strong>Step 4:</strong> Get approval from relevant authorities.</li>
+            <li><strong>Step 5:</strong> Pay any required fees.</li>
+            <li><strong>Step 6:</strong> Wait for confirmation and update your records.</li>
+        </ol>
+    </div>
+
+        <h2> When Is the Best Time to Apply?</h2>
+        <p>The best time to apply for a course change is after the first year (100 Level). Some universities allow changes at 200 Level, but it is rare at 300 Level.</p>
+
+        <h2> Universities That Allow Course Change</h2>
+       <em> <ul style="">
+            <li> University of Lagos (UNILAG)</li>
+            <li> University of Nigeria, Nsukka (UNN)</li>
+            <li> Ahmadu Bello University (ABU)</li>
+            <li> University of Ilorin (UNILORIN)</li>
+            <li> Obafemi Awolowo University (OAU)</li>
+            <li> Covenant University</li>
+        </ul>
+    </em>
+        <h2> Conclusion</h2>
+        <p><em>Changing your course is possible if you meet the requirements. Make sure you apply early and consult your academic advisor for guidance.</em></p>
+    </div>
+
+    
+         <!-- foooter ......................................... -->
+  
+  <script src="js/index.js"></script>`;
+
+export default function UnnCoursesDept() {
+  return (
+    <LegacyContentPage
+      title="How to Change Course/Department - Nigerian Universities | MySearch Query"
+      description="Learn how to change your course or department at Nigerian universities. Get step-by-step guidelines and requirements to successfully switch courses."
+      html={html}
+    >
+      <HotLinks title="Hot links" links={jambHotLink6} />
+    </LegacyContentPage>
+  );
+}

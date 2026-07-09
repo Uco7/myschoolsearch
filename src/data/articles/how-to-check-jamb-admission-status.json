@@ -1,0 +1,36 @@
+{
+  "slug": "how-to-check-jamb-admission-status",
+  "title": "How to Check Your JAMB Admission Status on CAPS",
+  "description": "Step-by-step guide to checking your JAMB admission status on CAPS, understanding admission batches, and what to do if you're not on the first list.",
+  "category": "JAMB Guides",
+  "sections": [
+    {
+      "heading": "What Is CAPS?",
+      "body": "CAPS (Central Admissions Processing System) is JAMB's official platform for tracking and managing university admissions. Once you've been offered admission by a school, that offer is reflected on your CAPS profile — this is also where you formally accept or reject an admission offer, not just where you check status."
+    },
+    {
+      "heading": "Step-by-Step: Checking Your Status",
+      "body": "Log in to your JAMB profile using your registration number and password. Navigate to the CAPS section of your dashboard. If a school has admitted you, you'll see the institution name, course, and admission type (UTME or Direct Entry) displayed there, along with an option to accept or reject the offer. If nothing shows yet, it means no admission decision has reached CAPS for you so far in the current cycle."
+    },
+    {
+      "heading": "Understanding Admission Batches",
+      "body": "Universities don't release all their admissions at once. JAMB coordinates several admission batches/lists across an admission cycle, and schools fill their available slots progressively — by merit, catchment area quota, and educationally less-developed states quota. Not appearing on an early batch doesn't mean you've been rejected; it can simply mean your school hasn't reached your position in the process yet."
+    },
+    {
+      "heading": "What to Do If You're Not on the List Yet",
+      "body": "Keep checking your CAPS profile periodically rather than assuming a final outcome after one look. If your first-choice school's admission process for the cycle has fully closed and you still don't have an offer, JAMB's Change of Institution service (opened during a defined window each cycle) lets you apply to a different school that still has space, using your same UTME score."
+    },
+    {
+      "heading": "After You See an Offer",
+      "body": "Accepting an offer on CAPS is a required step — an offer that's never formally accepted on CAPS can lapse. Once accepted, pay the school's acceptance fee promptly through their official portal (never to a personal account) to secure your place, then follow the school's own instructions for clearance and registration."
+    }
+  ],
+  "faqs": [
+    { "q": "How often should I check CAPS?", "a": "There's no fixed schedule from JAMB, but checking every few days during the active admission period is reasonable — admission batches can be released with little advance public notice." },
+    { "q": "Can I be admitted to two schools at once?", "a": "No — CAPS is designed around a single active admission per candidate per cycle. Accepting one offer effectively closes out competing consideration elsewhere for that cycle." },
+    { "q": "Does rejecting an offer hurt my chances elsewhere?", "a": "Rejecting an offer on CAPS is a legitimate option if you intend to pursue a different school or wait for a preferred course, but do this deliberately — it can affect your standing with the school you rejected if you change your mind later." },
+    { "q": "What if my admission shows the wrong course?", "a": "Contact the admitting institution's admissions office directly and, in parallel, check whether a JAMB Change of Course correction is needed — a course mismatch on CAPS is worth resolving before you accept the offer, not after." }
+  ],
+  "sourceUrls": [],
+  "generatedAt": "2026-07-08T00:00:00.000Z"
+}

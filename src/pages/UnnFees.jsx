@@ -1,0 +1,87 @@
+import LegacyContentPage from "../components/LegacyContentPage";
+import HotLinks from "../components/HotLinks";
+import { jambHotLink6 } from "../data/hotLinksData";
+
+const html = `<!--include  header file -->
+ 
+    <div class="image">   </div>
+    <header class="heading-top">
+        <h1>UNN Fees & Scholarships</h1>
+        <nav class="nav-ul-wrapper">
+            <ul class="child-ul">
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#tuition">Tuition Fees</a></li>
+                <li><a href="#hostel">Hostel Accommodation</a></li>
+                <li><a href="#scholarships">Scholarships</a></li>
+                <li><a href="#loans">Student Loans</a></li>
+                <li><a href="#penalties">Payment Deadlines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section  class="section-txt">
+        <h2>Introduction</h2>
+        <p>The University of Nigeria, Nsukka (UNN) has a structured fee system that varies across faculties and programs. Below is a detailed breakdown of the tuition fees, acceptance fees, hostel accommodation charges, and other associated costs for both new and returning students.</p>
+    </section>
+    
+    <section class="container section-txt">
+        <h2>Tuition Fees</h2>
+        <h3>New Students (Freshers)</h3>
+        <ul class="child-ul">
+            <li>Acceptance Fee: ₦20,000 – ₦30,000 (non-refundable)</li>
+            <li>Tuition Fees: ₦70,000 – ₦80,000 (varies by faculty)</li>
+            <li>Development Levy: ₦20,000</li>
+            <li>Medical Fee: ₦10,000</li>
+            <li>ICT Fee: ₦7,500</li>
+            <li>Library Fee: ₦3,000</li>
+            <li>Departmental Fees: ₦10,000 – ₦20,000</li>
+            <li><strong>Total Estimated Fees: ₦140,000 – ₦170,000</strong></li>
+        </ul>
+    </section>
+
+    <section class="container section-txt">       
+         <h2>Scholarships and Financial Aid</h2>
+        <p>UNN offers various scholarships, including merit-based scholarships, need-based grants, and awards for outstanding performance.</p>
+        <label for="scholarship-dropdown">Select a Scholarship Type:</label>
+        <select id="scholarship-dropdown">
+            <option value="merit">Merit-Based Scholarship</option>
+            <option value="need">Need-Based Grant</option>
+            <option value="performance">Performance Award</option>
+        </select>
+        <p>For more details, visit the <a href="https://unn.edu.ng/scholarships">UNN Scholarships Portal</a>.</p>
+    </section>
+
+    <section class="container">
+        <h2>Student Loans & Payment Plans</h2>
+        <h3>How to Apply for a Student Loan?</h3>
+        <p>Students who require financial aid can apply for student loans through government and private financial institutions. Some universities also provide loan schemes.</p>
+        <p>Visit <a href="https://www.nelp.gov.ng/">National Education Loan Portal</a> for more details.</p>
+        
+        <h3>Can I Pay School Fees in Installments?</h3>
+        <p>Yes, UNN allows installment payments under specific conditions. You must apply for an installment plan at the bursary department.</p>
+        
+        <h3>What Happens If I Don’t Pay School Fees on Time?</h3>
+        <p>Late payment of school fees can result in penalties, inability to register for exams, and even loss of studentship in extreme cases.</p>
+    </section>
+
+    <section class="section-txt">
+        <h2>Payment Deadlines and Penalties</h2>
+        <p>The deadline for school fee payments is March 2025. Late payments may result in loss of studentship for the session.</p>
+    </section>
+
+    <button  class="scroll-top">Scroll to Top</button>
+       <!-- foooter ......................................... -->
+  
+  <script src="js/index.js"></script>`;
+
+export default function UnnFees() {
+  return (
+    <LegacyContentPage
+      title="UNN Fees & Scholarships - University of Nigeria Nsukka | MySearch Query"
+      description="Explore the full breakdown of tuition fees, hostel accommodation, and scholarship opportunities available at the University of Nigeria, Nsukka (UNN)."
+      html={html}
+    >
+      <HotLinks title="Hot links" links={jambHotLink6} />
+    </LegacyContentPage>
+  );
+}

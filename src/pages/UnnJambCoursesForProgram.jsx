@@ -1,0 +1,100 @@
+import LegacyContentPage from "../components/LegacyContentPage";
+import HotLinks from "../components/HotLinks";
+import { jambHotLink6 } from "../data/hotLinksData";
+
+const html = `<!--include  header file -->
+    <div class="image">   </div>
+    <div class="container mt-4">
+        <h2 class="text-center">Jamb Subjects  Combination for Different Programs</h2>
+        
+        <!-- Search Bar -->
+        <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a course..." onkeyup="searchCourse()">
+        </div>
+
+        <!-- Required Subjects Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Faculty</th>
+                        <th>Course</th>
+                        <th>Required Subjects</th>
+                    </tr>
+                </thead>
+                <tbody id="courseTable">
+                    <tr><td>Medicine</td><td>Medicine & Surgery</td><td>English, Biology, Chemistry, Physics</td></tr>
+                    <tr><td>Law</td><td>Law</td><td>English, Government, Literature, CRS/IRS</td></tr>
+                    <tr><td>Engineering</td><td>Electrical Engineering</td><td>English, Mathematics, Physics, Chemistry</td></tr>
+                    <tr><td>Engineering</td><td>Civil Engineering</td><td>English, Mathematics, Physics, Chemistry</td></tr>
+                    <tr><td>Engineering</td><td>Mechanical Engineering</td><td>English, Mathematics, Physics, Chemistry</td></tr>
+                    <tr><td>Business</td><td>Business Administration</td><td>English, Mathematics, Economics, Government</td></tr>
+                    <tr><td>Science</td><td>Computer Science</td><td>English, Mathematics, Physics, Chemistry</td></tr>
+                    <tr><td>Science</td><td>Microbiology</td><td>English, Biology, Chemistry, Physics</td></tr>
+                    <tr><td>Social Science</td><td>Economics</td><td>English, Mathematics, Economics, Government</td></tr>
+                    <tr><td>Social Science</td><td>Political Science</td><td>English, Government, CRS/IRS, Economics</td></tr>
+                    <tr><td>Education</td><td>Education Management</td><td>English, Mathematics, Economics, Government</td></tr>
+                    <tr><td>Education</td><td>Educational Psychology</td><td>English, Government, CRS/IRS, Literature</td></tr>
+                    <tr><td>Agriculture</td><td>Agricultural Science</td><td>English, Biology, Chemistry, Physics</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container section-txt">
+        <h2>Hot Links</h2>
+        <ul class="child-ul">
+            <li> <a href="school_grading_system.html">nigerian universities grading system</a></li>
+            <li> <a href="cgpaCalc.html">Learn how to calculate cgpa/gpa</a></li>
+            <li> <a href="funai/howToAplyFor_funaiPg.html">How to apply for funai post gradute programs</a></li>
+            <li> <a href="">Unn school fees charges for fresh students</a></li>
+        </ul>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">↑ Top</button>
+
+    <script>
+        // Search Function
+        function searchCourse() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let table = document.getElementById("courseTable");
+            let rows = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                let course = rows[i].getElementsByTagName("td")[1];
+                if (course) {
+                    let textValue = course.textContent || course.innerText;
+                    rows[i].style.display = textValue.toLowerCase().indexOf(input) > -1 ? "" : "none";
+                }
+            }
+        }
+
+        // Scroll to Top Function
+        window.onscroll = function() {
+            let scrollTopBtn = document.querySelector(".scroll-top");
+            if (document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>    
+ <!-- foooter ......................................... -->
+  
+  <script src="js/index.js"></script>`;
+
+export default function UnnJambCoursesForProgram() {
+  return (
+    <LegacyContentPage
+      title="UNN Required Subjects - Admission Guide for All Courses | MySearch Query"
+      description="Find the complete list of required O'Level and JAMB subjects for all courses at the University of Nigeria, Nsukka (UNN). Plan your admission process with accurate subject combinations."
+      html={html}
+    >
+      <HotLinks title="Hot links" links={jambHotLink6} />
+    </LegacyContentPage>
+  );
+}
