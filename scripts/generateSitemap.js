@@ -208,8 +208,11 @@ const universitySlugs = [
   "oouagoiwoye"
 ];
 const SITE_URL = "https://myschoolsearch.pages.dev";
-const universityRoutes = universitySlugs.map(slug => `/university/${slug}`);
 
+
+const universityRoutes = universitySlugs.map(
+  slug => `/university/${slug.toLowerCase()}`
+);
 // Combine + dedupe, in case a slug is ever added twice
 let articleRoutes = [];
 try {
@@ -238,11 +241,12 @@ const sitemap = {
     $: {
       xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9",
     },
-    url: routes.map((route) => ({
-      loc: `${SITE_URL}${route}`,
-      lastmod: today,
-      priority: priorityFor(route),
-    })),
+  url: routes.map((route) => ({
+  loc: `${SITE_URL}${route}`,
+  lastmod: today,
+  changefreq: "weekly",
+  priority: priorityFor(route),
+})),
   },
 };
 
