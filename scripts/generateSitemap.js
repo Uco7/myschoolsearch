@@ -249,6 +249,6 @@ const builder = new xml2js.Builder();
 const xml = builder.buildObject(sitemap);
 
 // Write the XML to a file
-fs.writeFileSync(new URL('../public/sitemap.xml', import.meta.url), xml);
+fs.writeFileSync(new URL('../public/new_sitemap.xml', import.meta.url), xml);
 
 console.log(`Sitemap generated successfully! (${routes.length} URLs)`);
