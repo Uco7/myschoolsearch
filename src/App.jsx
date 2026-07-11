@@ -91,7 +91,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Suspense fallback={<div style={{ padding: "4rem", textAlign: "center" }}>Loading…</div>}>
       <Routes>
         <Route path="/" element={<Home />} />

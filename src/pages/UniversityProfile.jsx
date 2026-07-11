@@ -83,22 +83,29 @@ function buildCommonMistakes(uni, category) {
   return mistakes;
 }
 
-// Department-level cut-off marks and total first-year cost are the two
-// most-requested-but-least-verifiable figures (they vary by department and
-// by year even more than the institutional cut-off/tuition do). Rather than
-// fabricate precise per-department numbers for 141 schools' worth of
-// departments, this generates a clearly-labelled TYPICAL banding derived
-// from the school's own (verified-or-typical) institutional cut-off —
-// giving readers a genuinely useful table without presenting invented
-// precision as fact.
-function buildDepartmentCutoffTable(institutional) {
-  const cap = (n) => Math.min(400, n);
-  return [
-    { tier: "Medicine, Law, Pharmacy, Dentistry", range: `${cap(institutional + 40)}–${cap(institutional + 90)}` },
-    { tier: "Engineering, Computer Science, Architecture", range: `${cap(institutional + 15)}–${cap(institutional + 45)}` },
-    { tier: "Accounting, Economics, Business Admin, Mass Communication", range: `${cap(institutional + 5)}–${cap(institutional + 25)}` },
-    { tier: "Arts, Social Sciences, Education, Agriculture", range: `${institutional}–${cap(institutional + 15)}` },
-  ];
+// Classifies a real faculty name (from this school's own faculties list)
+// into a rough competitiveness tier, so the per-faculty cut-off list below
+// uses genuine faculty names — not generic bands — while still being
+// honest that the score itself is an estimate, not a confirmed figure.
+function classifyFacultyTier(facultyName) {
+  const name = facultyName.toLowerCase();
+  if (/medic|health|clinical|pharmacy|dent|nursing/.test(name)) return 70;
+  if (/\blaw\b/.test(name)) return 55;
+  if (/engineer|comput|technology|architecture/.test(name)) return 30;
+  if (/management|business|account/.test(name)) return 15;
+  return 5;
+}
+
+function formatFacultyLabel(name) {
+  if (/^(faculty|college|school) of\b/i.test(name)) return name;
+  return `Faculty of ${name}`;
+}
+
+function buildFacultyCutoffList(faculties, institutional) {
+  return faculties.map((name) => ({
+    name: formatFacultyLabel(name),
+    score: Math.min(400, institutional + classifyFacultyTier(name)),
+  }));
 }
 
 function estimateTotalCost(category) {
@@ -158,7 +165,7 @@ export default function UniversityProfile() {
     directEntry: withLiveSession(uni.admissionRequirements.directEntry),
   };
   const postUtmeFormat = withLiveSession(uni.postUtme.format);
-  const postUtmeSteps = uni.postUtme.steps.map(withLiveSession);
+  const postUtmeSteps = uni.postUtme.steps.map((s) => withLiveSession(s));
   const cutOffNote = withLiveSession(uni.cutOffMarks.note);
   const schoolFeesNote = withLiveSession(uni.schoolFees.note);
   const acceptanceFeeNote = withLiveSession(uni.acceptanceFee.note);
@@ -173,7 +180,7 @@ export default function UniversityProfile() {
 
   const whyChoose = buildWhyChoose(uni, category, ownership, currentYear);
   const commonMistakes = buildCommonMistakes(uni, category);
-  const departmentCutoffs = buildDepartmentCutoffTable(uni.cutOffMarks.institutional);
+  const departmentCutoffs = buildFacultyCutoffList(uni.faculties, uni.cutOffMarks.institutional);
   const totalCost = estimateTotalCost(category);
 
   const extraFaqs = [
@@ -202,6 +209,16 @@ export default function UniversityProfile() {
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${uni.abbreviation} Faculty-by-Faculty Cut-off Marks`,
+      itemListElement: departmentCutoffs.map((row, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${row.name} — UTME Minimum Screening Score: ${row.score}`,
       })),
     },
   ];
@@ -317,23 +334,19 @@ export default function UniversityProfile() {
           </div>
           <p>{cutOffNote}</p>
 
-          <h3 className="text-color">Typical Department-Level Cut-off Bands</h3>
+          <h3 className="text-color">{uni.abbreviation}'s Faculty-by-Faculty Cut-off Marks</h3>
           <p style={{ fontSize: "0.9rem", color: "#555" }}>
-            Illustrative banding derived from {uni.abbreviation}'s institutional cut-off, not confirmed
-            per-department figures — competitive courses almost always require more than the general
-            minimum. Confirm the exact departmental cut-off on the official portal.
+            Estimated UTME minimum screening score by faculty, derived from {uni.abbreviation}'s
+            institutional cut-off — not individually confirmed per faculty. Confirm the exact current
+            departmental cut-off on the official portal before applying.
           </p>
-          <div className="table-container">
-            <table>
-              <thead><tr><th>Course Group</th><th>Typical Cut-off Range</th></tr></thead>
-              <tbody>
-                {departmentCutoffs.map((row, i) => (
-                  <tr key={i}><td>{row.tier}</td><td>{row.range}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
+          <ol className="child-ul">
+            {departmentCutoffs.map((row, i) => (
+              <li key={i}>
+                <strong>{row.name}</strong> — UTME Minimum Screening Score: {row.score}
+              </li>
+            ))}
+          </ol>        </section>
 
         {/* SCHOOL FEES */}
         <section id="school-fees" className="section-txt">

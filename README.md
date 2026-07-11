@@ -133,17 +133,21 @@ you never have to manually bump a year. `getCurrentSession()` rolls over
 every October 1st automatically. All of Home, InstitutionList, and
 UniversityProfile use this instead of a fixed string.
 
-## Deploying as static (SPA fallback)
+## Deploying as static (Cloudflare Pages)
 
-Because this is a client-side-routed SPA, a request straight to e.g.
-`/university/unilag` (exactly what a Google click looks like) needs your
-host to serve `index.html` for every path, not 404. Config for the common
-static hosts is included:
-- `public/_redirects` — Netlify / most static hosts
-- `render.yaml` — Render static sites
-- `vercel.json` — Vercel
+You're hosting on Cloudflare Pages, so no `_redirects`, `render.yaml`, or
+`vercel.json` file is needed — Cloudflare Pages auto-detects a Single Page
+Application (since there's no top-level `404.html` in this project) and
+serves `index.html` for genuinely-missing client-side routes on its own.
+Real static files (`sitemap.xml`, `robots.txt`, `/images/*`) are still
+served correctly at that layer — see the "Cloudflare Pages: the
+`_redirects` bug" section below for why an explicit `_redirects` file
+actually broke this.
 
-If your host isn't one of these, tell me which one and I'll add its config too.
+If you ever add a second deployment target (Render, Vercel, Netlify), say
+so and I'll add that host's specific config file back — each one has
+different default behavior around this, which is exactly what caused the
+sitemap bug in the first place.
 
 
 
@@ -189,6 +193,47 @@ external image), so there's no copyright/licensing exposure. A graduation-
 cap illustration on the homepage hero, and small line-icons next to key
 section headings on university pages (fees, cut-off, faculties, documents,
 timeline, hostel).
+
+## Cloudflare Pages: the `_redirects` bug that broke your sitemap
+
+If you deployed to Cloudflare Pages and Google Search Console said "Sitemap
+could not be read" / "Couldn't fetch" for days — this was the cause, and
+it's now fixed in this project.
+
+**What was wrong:** `public/_redirects` had a blanket SPA-fallback rule:
+```
+/*    /index.html   200
+```
+Cloudflare Pages' own docs state redirects in `_redirects` "are always
+followed, **regardless of whether or not an asset matches the incoming
+request**." That's different from Netlify (where a real static file wins
+over a redirect by default). On Cloudflare Pages, that one rule was
+intercepting *every* request — including `/sitemap.xml`, `/robots.txt`, and
+everything in `/images/` — and serving them all as `index.html` (HTML)
+instead of their real content. Google fetched your sitemap, got back an
+HTML page instead of XML, and reported exactly the error you saw.
+
+**The fix:** the `_redirects` file has been removed entirely. Cloudflare
+Pages already auto-detects a Single Page Application when there's no
+top-level `404.html` (which this project doesn't have) and serves
+`index.html` for genuinely-missing routes on its own — real static files
+are still checked and served first at that layer, unlike a manual
+`_redirects` rule. So client-side routing (`/university/unilag` etc.) still
+works, but `/sitemap.xml`, `/robots.txt`, and `/images/*` are no longer
+shadowed.
+
+Since you're only deploying to Cloudflare Pages, `render.yaml` and
+`vercel.json` have been removed from this project entirely — they'd have
+just been unused dead files. If you add Render or Vercel as a target
+later, tell me and I'll add the right config back for that host.
+
+**What to do next:**
+1. Redeploy this project to Cloudflare Pages.
+2. Visit `https://myschoolsearch.pages.dev/sitemap.xml` directly in your
+   browser and confirm it shows raw XML, not your site's homepage.
+3. In Search Console, use "Validate Fix" (or just re-submit the sitemap
+   URL) rather than waiting — the old error can take a bit to clear, but
+   the fetch itself should succeed on the next crawl.
 
 ## Known gaps / things to double check
 

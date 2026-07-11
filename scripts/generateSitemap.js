@@ -207,12 +207,9 @@ const universitySlugs = [
   "ysu",
   "oouagoiwoye"
 ];
-const SITE_URL = "https://myschoolsearch.pages.dev";
 
+const universityRoutes = universitySlugs.map(slug => `/university/${slug}`);
 
-const universityRoutes = universitySlugs.map(
-  slug => `/university/${slug.toLowerCase()}`
-);
 // Combine + dedupe, in case a slug is ever added twice
 let articleRoutes = [];
 try {
@@ -238,16 +235,13 @@ const priorityFor = (route) => {
 // Create the XML structure
 const sitemap = {
   urlset: {
-    $: {
-      xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9",
-    },
-  url: routes.map((route) => ({
-  loc: `${SITE_URL}${route}`,
-  lastmod: today,
-  changefreq: "weekly",
-  priority: priorityFor(route),
-})),
-  },
+    $: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
+    url: routes.map(route => ({
+      loc: `https://myschoolsearch.pages.dev${route}`,
+      lastmod: today,
+      priority: priorityFor(route),
+    }))
+  }
 };
 
 // Convert JSON to XML

@@ -1,18 +1,14 @@
+// Every "session", "deadline", and "last updated" string on the site is
+// computed from the visitor's actual clock — nothing here is a hardcoded
+// year that will go stale. Nigerian admission sessions run roughly
+// October–September, so an admission cycle that started in October of year
+// Y is conventionally labelled "Y/Y+1" until the following October.
+
+/** Returns the current Nigerian academic session, e.g. "2026/2027". */
 export function getCurrentSession(date = new Date()) {
-  // Convert non-Date values into a Date
-  if (!(date instanceof Date)) {
-    date = new Date(date);
-  }
-
-  // Fallback if the conversion failed
-  if (isNaN(date.getTime())) {
-    date = new Date();
-  }
-
   const year = date.getFullYear();
-  const month = date.getMonth(); // October = 9
+  const month = date.getMonth(); // 0-indexed; October = 9
   const startYear = month >= 9 ? year : year - 1;
-
   return `${startYear}/${startYear + 1}`;
 }
 
